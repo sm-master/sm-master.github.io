@@ -73,3 +73,8 @@ git pull origin main
 
 Якщо ти не хочеш втратити свої файли, але хочеш отримати файли з репозиторію — роби так:
 git clone https://github.com/smart-master/smart-master.github.io smartmaster-temp
+
+зміна вітки 
+git checkout main
+
+git push origin --delete master

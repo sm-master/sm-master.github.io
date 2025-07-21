@@ -71,16 +71,14 @@ body.no-scroll {
 .logo__link,
 .text_header,
 .header_menu {
-  position         : relative;
+  position         : absolute;
   z-index          : 2;
 }
 
 .logo__link {
-  position: absolute;
   top     : 10px;
   left    : 10px;
-  z-index : 5; /* вище за фон */
-}
+ }
 
 .logo__link img {
   width : clamp(100px, 18vw, 140px);
@@ -93,8 +91,12 @@ body.no-scroll {
   color     : white;
   z-index   : 2;
   position: absolute;
-  top: clamp(106px, 17vw, 129px);
+  /* top: clamp(106px, 17vw, 129px); */
   width: 100%;
+  margin-top: clamp(39px, 7vw, 45px);
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .header_text {
