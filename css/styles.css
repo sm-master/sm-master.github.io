@@ -43,85 +43,85 @@ body.no-scroll {
 }
 
 .header {
-  position              : relative;
-  height                : clamp(220px, 31vw, 350px);
-  width                 : 100%;
-  overflow              : hidden;
-  }
+  position: relative;
+  height  : clamp(220px, 31vw, 350px);
+  width   : 100%;
+  overflow: hidden;
+}
 
 /* паралакс через JS */
 .parallax-container {
-  width    : 100%;
-  height   : clamp(220px, 31vw, 350px);
-  overflow : hidden;
+  width   : 100%;
+  height  : clamp(220px, 31vw, 350px);
+  overflow: hidden;
 }
 
 .parallax-img {
-  position  : absolute;
-  top       : 0;
-  left      : 0;
-  width     : 100%;
-  height    : auto;
-  min-height: 100%;
-  object-fit: cover;
-  filter    : brightness(0.5);
+  position   : absolute;
+  top        : 0;
+  left       : 0;
+  width      : 100%;
+  height     : auto;
+  min-height : 100%;
+  object-fit : cover;
+  filter     : brightness(0.5);
   will-change: transform;
 }
 
 .logo__link,
 .text_header,
 .header_menu {
-  position         : absolute;
-  z-index          : 2;
+  position: absolute;
+  z-index : 2;
 }
 
 .logo__link {
-  top     : 10px;
-  left    : 10px;
- }
+  top : 10px;
+  left: 10px;
+}
 
 .logo__link img {
   width : clamp(100px, 18vw, 140px);
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
 }
 
-
 .text_header {
+  position  : absolute;
+  top       : 50%;
+  left      : 50%;
+  transform : translate(-50%, -50%);
   text-align: center;
   color     : white;
-  z-index   : 2;
-  position: absolute;
-  /* top: clamp(106px, 17vw, 129px); */
-  width: 100%;
+  width     : 100%;
   margin-top: clamp(39px, 7vw, 45px);
-    top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index   : 2;
 }
 
 .header_text {
   line-height: normal;
   font-size  : clamp(16px, 3vw, 30px);
 }
-.servise_title{
+
+.servise_title {
   padding: 15px 0px;
 }
+
 /* === services_icon === */
 .services_icon {
-  display: grid;
+  display              : grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  justify-items: center;
+  gap                  : 30px;
+  justify-items        : center;
 }
 
 .services_bloc-1 {
   background-color: #f5f5f5;
-  border-radius: 12px;
-  padding: 20px;
-  width: 100%;
-  max-width: 320px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius   : 12px;
+  padding         : 20px;
+  width           : 100%;
+  max-width       : 320px;
+  box-shadow      : 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition      : transform 0.3s ease;
 }
 
 .services_bloc-1:hover {
@@ -129,26 +129,26 @@ body.no-scroll {
 }
 
 .services_bloc-1 img {
-  max-width: 80px;
-  height: auto;
+  max-width    : 80px;
+  height       : auto;
   margin-bottom: 15px;
 }
 
 .services-list li {
   margin-bottom: 8px;
-} 
+}
 
-  .services-list {
+.services-list {
   list-style  : disc;
   padding-left: 1.5em;
-} 
+}
 
 .font_0 {
-  font-family      : var(--font_0);
-  font-size        : clamp(25px, 5vw, 50px);
-  font-weight      : bold;
-  line-height      : 1.4em;
- }
+  font-family: var(--font_0);
+  font-size  : clamp(25px, 5vw, 50px);
+  font-weight: bold;
+  line-height: 1.4em;
+}
 
 #menu {
   display        : flex;
@@ -189,7 +189,7 @@ h2 {
   display              : grid;
   gap                  : 30px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  padding-top: 15px;
+  padding-top          : 15px;
 }
 
 .gallery img {
@@ -389,10 +389,11 @@ form button:hover {
   font-weight: bold;
 }
 
-.contacts_link a{
+.contacts_link a {
   color: var(--dark);
 }
-.contacts_link a:hover{
+
+.contacts_link a:hover {
   color: var(--accent);
 }
 
@@ -436,13 +437,13 @@ form button:hover {
 
 /* Кнопка закриття */
 .close-btn {
-  position        : absolute;
-  top             : 10px;
-  right           : 10px;
-  background      : transparent;
-  border          : none;
-  font-size       : 1.5em;
-  cursor          : pointer;
+  position  : absolute;
+  top       : 10px;
+  right     : 10px;
+  background: transparent;
+  border    : none;
+  font-size : 1.5em;
+  cursor    : pointer;
 }
 
 /* Приховане модальне */
