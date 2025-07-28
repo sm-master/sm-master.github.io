@@ -280,10 +280,8 @@ h2 {
   .gallery_photo img {
     float: none;
     display: block;
-    margin: 0 auto 15px;
-    width: 100%;
-    max-width: 400px;
-  }
+        width: clamp(262px, 83vw, 400px);
+    }
 }
 
 /* Форма */
@@ -392,6 +390,7 @@ form button:hover {
     position: absolute;
     top     : 35px;
     right   : 35px;
+    margin-right: 30px;
   }
 
   .header_menu {
