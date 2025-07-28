@@ -1,5 +1,5 @@
 :root {
-  --dark   : #787d7b;
+  --dark   : #353535; /* #787d7b; */
   --accent : #d45500;
   --light  : #f5f5f5;
   --font_0 : "Segoe UI", sans-serif;
@@ -33,7 +33,6 @@ body.no-scroll {
   flex-direction  : column;
   min-height      : 100vh;
   background-color: var(--colof_f);
-  gap             : 15px;
 }
 
 .container {
@@ -47,6 +46,7 @@ body.no-scroll {
   height  : clamp(220px, 31vw, 350px);
   width   : 100%;
   overflow: hidden;
+  margin-top: 100px;
 }
 
 /* паралакс через JS */
@@ -68,21 +68,30 @@ body.no-scroll {
   will-change: transform;
 }
 
-.logo__link,
-.text_header,
-.header_menu {
-  position: absolute;
-  z-index : 2;
+.header_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color:var(--dark); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+section[id] {
+  scroll-margin-top: 100px;
+}
 .logo__link {
-  top : 10px;
-  left: 10px;
-}
+   padding: 5px 0 0 5px;
+} 
 
 .logo__link img {
-  width : clamp(100px, 18vw, 140px);
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+  width : clamp(70px, 18vw, 100px);
+ filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9)); 
 }
 
 .text_header {
@@ -93,8 +102,7 @@ body.no-scroll {
   text-align: center;
   color     : white;
   width     : 100%;
-  margin-top: clamp(39px, 7vw, 45px);
-  z-index   : 2;
+   z-index   : 2;
 }
 
 .header_text {
@@ -161,6 +169,43 @@ body.no-scroll {
   top     : 30px;
   right   : 30px;
   z-index : 2;
+  align-items: center;
+}
+
+.site-description {
+  display        : flex;
+  margin-left: 15px;
+  align-items    : center;
+  gap            : 10px;
+  background-color: #fcdb05;
+  border-radius  : 28px;
+  padding        : 6px 15px;
+  font-size      : 16px;
+  font-weight    : bold;
+  color          : #000;
+  text-decoration: none;
+  transition     : background-color 0.3s;
+  cursor         : pointer;
+}
+
+.site-description a {
+  color          : inherit;
+  text-decoration: none;
+  white-space    : nowrap;
+}
+.site-description:hover {
+  background-color: var(--accent);
+}
+
+.header__tel-icon {
+  display: flex;
+  align-items: center;
+}
+
+.header__tel-icon svg {
+  width : 20px;
+  height: 20px;
+  fill  : currentColor;
 }
 
 .header_menu-1 {
@@ -170,7 +215,7 @@ body.no-scroll {
 }
 
 .menu_link {
-  color          : white;
+  color          : rgb(243, 242, 242);
   text-decoration: none;
   transition     : color 0.3s;
   text-transform : uppercase;
@@ -188,15 +233,57 @@ h2 {
 .gallery {
   display              : grid;
   gap                  : 30px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   padding-top          : 15px;
 }
 
-.gallery img {
-  width        : 100%;
-  border-radius: 8px;
-  object-fit   : cover;
-  box-shadow   : 0 4px 6px rgba(0, 0, 0, 0.1);
+/* --- gallery_photo --- */
+.gallery_photo {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  overflow: hidden; /* щоб clearfix спрацював */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
+}
+
+.gallery_photo img {
+  float: left;
+  width: clamp(220px, 31vw, 250px);
+  height: auto;
+  margin: 0 20px 10px 0;
+  border-radius: 10px;
+  object-fit: cover;
+  filter     : brightness(0.5);
+}
+.gallery_photo img:hover{
+  filter     : inherit;
+}
+
+.gallery_photo ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.gallery_photo ul ul {
+  padding-left: 15px;
+  list-style-type: disc;
+}
+
+.gallery_photo li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 1000px) {
+  .gallery_photo img {
+    float: none;
+    display: block;
+    margin: 0 auto 15px;
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 /* Форма */
@@ -240,7 +327,7 @@ form button:hover {
 }
 
 /* Базові стилі бургер-кнопки */
-.burger {
+ .burger {
   display        : none;
   flex-direction : column;
   justify-content: center;
@@ -257,9 +344,9 @@ form button:hover {
 .burger-line {
   width           : 100%;
   height          : 3px;
-  background-color: white;
+  background-color: var(--accent);
   transition      : all 0.3s ease;
-}
+} 
 
 /* Активний стан — перетворення на хрестик */
 .burger.active .burger-line:nth-child(1) {

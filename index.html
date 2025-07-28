@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="./images/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="./images/favicon/site.webmanifest" />
-  <title>SmartMaster</title>
+  <title>Sm-Master</title>
   <link rel="stylesheet" href="./css/styles.css" />
   <script src="js/burger.js" defer></script>
   <script src="js/contactForm.js" defer></script>
@@ -18,19 +18,10 @@
 
 <body>
   <div id="SITE_CONTAINER">
-    <header class="header">
-      <div class="parallax-container">
-        <img src="./images/01.header.avif" alt="Header Image" class="parallax-img" data-speed="0.4">
-      </div>
-
+    <div class="header_nav">
       <a class="logo__link" href="index.html">
         <img src="images/logo_sm.png" alt="logo" />
       </a>
-
-      <div class="text_header">
-        <h1 class="font_0"><span id="typewriter">Stavební firma «Sm-Master»</span></h1>
-        <p class="header_text">Pevná řešení. Od první cihly po střechu.</p>
-      </div>
 
       <button class="burger" id="burger" aria-label="Menu">
         <span class="burger-line"></span>
@@ -44,8 +35,29 @@
           <li class="menu_item"><a class="menu_link" href="#portfolio">Ukázky prací</a></li>
           <li class="menu_item"><a class="menu_link" href="#contacts">Kontakt</a></li>
         </ul>
+        <div class="site-description">
+          <div class="header__tel-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+               d="M6.62 10.79C8.06 13.94 10.06 15.94 13.21 17.38L16 14.59C16.27 14.32 16.66 14.23 17.03 14.33C18.13 14.62 19.31 14.79 20.5 14.79C20.78 14.79 21 15.01 21 15.29V20.5C21 20.78 20.78 21 20.5 21C10.28 21 3 13.72 3 3.5C3 3.22 3.22 3 3.5 3H8.71C8.99 3 9.21 3.22 9.21 3.5C9.21 4.69 9.38 5.87 9.67 6.97C9.77 7.34 9.68 7.73 9.41 8L6.62 10.79Z"
+               fill="currentColor" />
+            </svg>
+          </div>
+          <a href="tel:+420775538361">+42 077 553 83 61</a>
+        </div>
+
       </nav>
-    </header>
+
+    </div>
+    <div class="header">
+      <div class="parallax-container">
+        <img src="./images/01.header.avif" alt="Header Image" class="parallax-img" data-speed="0.4">
+        <div class="text_header">
+          <h1 class="font_0"><span id="typewriter">Stavební firma «Sm-Master»</span></h1>
+          <p class="header_text">Pevná řešení. Od první cihly po střechu.</p>
+        </div>
+      </div>
+    </div>
 
     <main class="container">
       <section id="services">
@@ -78,10 +90,100 @@
       <section id="portfolio">
         <h2 class="servise_title">Naše práce</h2>
         <div class="gallery">
-          <img src="./images/work2.avif" alt="Práce 2">
-          <img src="./images/work3.avif" alt="Práce 3">
-          <img src="./images/work4.avif" alt="Práce 4">
+          <div class="gallery_photo">
+            <img src="./images/work2.avif" alt="Práce 2">
+
+            <h4>🧾 Provedené stavební práce</h4>
+            <ul>
+              <li>Vybudován pásový betonový základ</li>
+              <li>Postaveny nosné vnější stěny z pórobetonu</li>
+              <li>Provedena izolace a fasádní práce</li>
+              <li>Montáž střechy</li>
+              <li><strong>Okna a dveře:</strong>
+                <ul>
+                  <li>Instalována energeticky úsporná okna</li>
+                  <li>Instalovány vstupní a interiérové dveře</li>
+                </ul>
+              </li>
+              <li><strong>Inženýrské sítě:</strong>
+                <ul>
+                  <li>Provedeny vnitřní elektroinstalační práce</li>
+                  <li>Namontováno vodovodní a kanalizační potrubí</li>
+                  <li>Nainstalován topný systém</li>
+                  <li>Připojena ventilace a sanitární zařízení</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="gallery_photo">
+            <img src="./images/work3.avif" alt="Práce 3">
+            <h4>🧾 Zpráva o provedených stavebních pracích (dokončený objekt):</h4>
+            <ul>
+              <li><strong>Základové práce, zdění stěn:</strong>
+                <ul>
+                  <li>Provedena hydroizolace a zasypání výkopů</li>
+                  <li>Vyzděny vnější a vnitřní nosné zdi</li>
+                  <li>Instalována střešní krytina</li>
+                  <li>Provedena tepelná izolace a parozábrana střechy</li>
+                </ul>
+              </li>
+              <li><strong>Okna a dveře:</strong>
+                <ul>
+                  <li>Instalována energeticky úsporná okna</li>
+                  <li>Instalovány vstupní a interiérové dveře</li>
+                </ul>
+              </li>
+              <li><strong>Fasádní práce:</strong>
+                <ul>
+                  <li>Tepelná izolace vnějších stěn minerální vatou</li>
+                  <li>Nanesení výztužné vrstvy</li>
+                  <li>Konečná dekorativní úprava a nátěr fasády</li>
+                </ul>
+              </li>
+            </ul>
+            <p>🏠 <strong>Stav:</strong> Objekt je plně dokončen. Dům je připraven k užívání a nastěhování.</p>
+          </div>
+
+          <div class="gallery_photo">
+            <img src="./images/work4.avif" alt="Práce 4">
+
+            <h4>🧾 Objekt: Rodinný dům</h4>
+            <p>
+              V současné fázi byly provedeny hlavní stavební práce související s výstavbou nosných konstrukcí,
+              dokončením střechy a vytvářením celkového objemu budovy. Práce byly provedeny podle projektové dokumentace
+              a v souladu s harmonogramem.
+            </p>
+          </div>
+
+          <div class="gallery_photo">
+            <img src="./images/work1.avif" alt="Práce 1">
+
+            <h4>🧾 Objekt: Rodinný dům (nedokončená výstavba)</h4>
+            <ul>
+              <li><strong>Základové a přípravné práce:</strong>
+                <ul>
+                  <li>Vybetonován pásový základ</li>
+                  <li>Provedena hydroizolace základů</li>
+                </ul>
+              </li>
+              <li><strong>Stěny a nosné konstrukce:</strong>
+                <ul>
+                  <li>Postaveny všechny vnější a vnitřní nosné stěny</li>
+                  <li>Vytvořeny dveřní a okenní otvory dle projektu</li>
+                </ul>
+              </li>
+              <li><strong>Střešní práce:</strong>
+                <ul>
+                  <li>Instalována střešní krytina (plechová taška)</li>
+                </ul>
+              </li>
+            </ul>
+            <p><strong>🏠 Stav:</strong> Hrubá stavba objektu byla dokončena. Dům je připraven na další etapu —
+              instalaci oken/dveří, provedení inženýrských sítí a vnitřní práce.</p>
+          </div>
         </div>
+
       </section>
 
       <section id="contacts">
@@ -92,6 +194,7 @@
         <p><strong>Adresa:</strong> Korunní 45, Vinohrady (Praha 10), 10100 Praha</p>
         <!-- Кнопка відкриття форми -->
         <button id="openFormBtn" class="contact-btn">Kontaktujte nás</button>
+      </section>
     </main>
     <!-- Контейнер форми (захований) -->
     <div id="contactPopup" class="contact-popup hidden">
@@ -116,8 +219,6 @@
         </form>
       </div>
     </div>
-    </section>
-
 
     <footer class="site-footer">
       <p>© 2025 SmartMaster. Všechna práva vyhrazena.</p>
