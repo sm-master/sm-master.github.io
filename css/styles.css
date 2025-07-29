@@ -1,9 +1,10 @@
 :root {
-  --dark   : #353535; /* #787d7b; */
+  --dark   : #353535;
+  /* #787d7b; */
   --accent : #d45500;
   --light  : #f5f5f5;
   --font_0 : "Segoe UI", sans-serif;
-  --colof_f: #f5f5f5;
+  --color_f: #f5f5f5;
 }
 
 * {
@@ -28,24 +29,195 @@ body.no-scroll {
   overflow: hidden;
 }
 
-#SITE_CONTAINER {
+.wrapper {
   display         : flex;
   flex-direction  : column;
   min-height      : 100vh;
-  background-color: var(--colof_f);
+  background-color: var(--color_f);
 }
 
-.container {
-  width    : 90%;
-  max-width: 1200px;
-  margin   : 0 auto;
+/* === header_nav === */
+.header_nav {
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  right           : 0;
+  height          : 100px;
+  background-color: var(--dark);
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  padding         : 0 2rem;
+  z-index         : 1000;
+  box-shadow      : 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+.logo__link {
+  padding: 5px 0 0 5px;
+}
+
+.logo__link img {
+  width : clamp(70px, 18vw, 100px);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+}
+
+.text_header {
+  position  : absolute;
+  top       : 50%;
+  left      : 50%;
+  transform : translate(-50%, -50%);
+  text-align: center;
+  color     : white;
+  width     : clamp(335px, 80vw, 100%);
+  z-index   : 2;
+}
+
+.header_text {
+  line-height: normal;
+  font-size  : clamp(16px, 3vw, 30px);
+}
+
+
+/* Базові стилі бургер-кнопки */
+.burger {
+  display        : none;
+  flex-direction : column;
+  justify-content: center;
+  gap            : 5px;
+  width          : 30px;
+  height         : 25px;
+  background     : transparent;
+  border         : none;
+  cursor         : pointer;
+  z-index        : 50;
+}
+
+.burger-line {
+  width           : 100%;
+  height          : 3px;
+  background-color: var(--accent);
+  transition      : all 0.3s ease;
+}
+
+/* Активний стан — перетворення на хрестик */
+.burger.active .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+#menu {
+  display        : flex;
+  justify-content: flex-end;
+}
+
+/* Меню */
+.header_menu {
+  position   : absolute;
+  top        : 30px;
+  right      : 30px;
+  z-index    : 2;
+  align-items: center;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .header_menu {
+    top             : 100%;
+    right           : 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction  : column;
+    align-items     : flex-start;
+    width           : 100%;
+    max-height      : 0;
+    overflow        : hidden;
+    transition      : max-height 0.3s ease;
+  }
+
+  .header_menu.active {
+    max-height: 500px;
+    padding   : 20px;
+  }
+
+  #menu {
+    position        : absolute;
+    top             : 100%;
+    right           : 0;
+    left            : 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction  : column;
+    align-items     : flex-start;
+    max-height      : 0;
+    overflow        : hidden;
+    transition      : max-height 0.4s ease, padding 0.3s ease;
+    z-index         : 5;
+    padding         : 0 20px;
+  }
+
+  #menu.active {
+    max-height: 276px;
+    overflow-y: auto;
+    padding   : 20px;
+    position  : absolute;
+    top       : 0;
+    height    : 240px;
+  }
+
+  .burger {
+    display     : flex;
+    position    : absolute;
+    top         : 35px;
+    right       : 35px;
+    margin-right: 30px;
+  }
+
+  .header_menu {
+    top   : auto;
+    bottom: 20px;
+    right : 20px;
+  }
+
+  .header_menu-1 {
+    flex-direction: column;
+    gap           : 10px;
+    background    : rgba(0, 0, 0, 0.5);
+    padding       : 10px;
+    border-radius : 8px;
+  }
+
+
+
+  .header_menu-1 {
+    flex-direction: column;
+    width         : 100%;
+  }
+
+  .menu_item {
+    padding: 10px 0;
+  }
+
+  .menu_link {
+    color          : white;
+    text-decoration: none;
+  }
+}
+
+/* === header === */
 .header {
-  position: relative;
-  height  : clamp(220px, 31vw, 350px);
-  width   : 100%;
-  overflow: hidden;
+  position  : relative;
+  height    : clamp(220px, 31vw, 350px);
+  width     : 100%;
+  overflow  : hidden;
   margin-top: 100px;
 }
 
@@ -68,47 +240,12 @@ body.no-scroll {
   will-change: transform;
 }
 
-.header_nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-color:var(--dark); 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-section[id] {
-  scroll-margin-top: 100px;
-}
-.logo__link {
-   padding: 5px 0 0 5px;
-} 
-
-.logo__link img {
-  width : clamp(70px, 18vw, 100px);
- filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9)); 
+.container {
+  width    : 90%;
+  max-width: 1200px;
+  margin   : 0 auto;
 }
 
-.text_header {
-  position  : absolute;
-  top       : 50%;
-  left      : 50%;
-  transform : translate(-50%, -50%);
-  text-align: center;
-  color     : white;
-  width     : 100%;
-   z-index   : 2;
-}
-
-.header_text {
-  line-height: normal;
-  font-size  : clamp(16px, 3vw, 30px);
-}
 
 .servise_title {
   padding: 15px 0px;
@@ -151,41 +288,28 @@ section[id] {
   padding-left: 1.5em;
 }
 
-.font_0 {
+/* .font_0 {
   font-family: var(--font_0);
   font-size  : clamp(25px, 5vw, 50px);
   font-weight: bold;
   line-height: 1.4em;
 }
-
-#menu {
-  display        : flex;
-  justify-content: flex-end;
-}
-
-/* Меню */
-.header_menu {
-  position: absolute;
-  top     : 30px;
-  right   : 30px;
-  z-index : 2;
-  align-items: center;
-}
+ */
 
 .site-description {
-  display        : flex;
-  margin-left: 15px;
-  align-items    : center;
-  gap            : 10px;
+  display         : flex;
+  margin-left     : 15px;
+  align-items     : center;
+  gap             : 10px;
   background-color: #fcdb05;
-  border-radius  : 28px;
-  padding        : 6px 15px;
-  font-size      : 16px;
-  font-weight    : bold;
-  color          : #000;
-  text-decoration: none;
-  transition     : background-color 0.3s;
-  cursor         : pointer;
+  border-radius   : 28px;
+  padding         : 6px 15px;
+  font-size       : 16px;
+  font-weight     : bold;
+  color           : #000;
+  text-decoration : none;
+  transition      : background-color 0.3s;
+  cursor          : pointer;
 }
 
 .site-description a {
@@ -193,12 +317,13 @@ section[id] {
   text-decoration: none;
   white-space    : nowrap;
 }
+
 .site-description:hover {
   background-color: var(--accent);
 }
 
 .header__tel-icon {
-  display: flex;
+  display    : flex;
   align-items: center;
 }
 
@@ -240,35 +365,37 @@ h2 {
 /* --- gallery_photo --- */
 .gallery_photo {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  overflow: hidden; /* щоб clearfix спрацював */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  line-height: 1.6;
-  font-size: 16px;
-  color: #333;
+  padding         : 20px;
+  border-radius   : 12px;
+  overflow        : hidden;
+  /* щоб clearfix спрацював */
+  box-shadow      : 0 4px 10px rgba(0, 0, 0, 0.05);
+  line-height     : 1.6;
+  font-size       : 16px;
+  color           : #333;
 }
 
 .gallery_photo img {
-  float: left;
-  width: clamp(220px, 31vw, 250px);
-  height: auto;
-  margin: 0 20px 10px 0;
+  float        : left;
+  width        : clamp(220px, 31vw, 250px);
+  height       : auto;
+  margin       : 0 20px 10px 0;
   border-radius: 10px;
-  object-fit: cover;
-  filter     : brightness(0.5);
+  object-fit   : cover;
+  filter       : brightness(0.5);
 }
-.gallery_photo img:hover{
-  filter     : inherit;
+
+.gallery_photo img:hover {
+  filter: inherit;
 }
 
 .gallery_photo ul {
-  margin: 10px 0;
+  margin      : 10px 0;
   padding-left: 20px;
 }
 
 .gallery_photo ul ul {
-  padding-left: 15px;
+  padding-left   : 15px;
   list-style-type: disc;
 }
 
@@ -278,10 +405,10 @@ h2 {
 
 @media (max-width: 1000px) {
   .gallery_photo img {
-    float: none;
+    float  : none;
     display: block;
-        width: clamp(262px, 83vw, 400px);
-    }
+    width  : clamp(262px, 83vw, 400px);
+  }
 }
 
 /* Форма */
@@ -324,126 +451,10 @@ form button:hover {
   font-size       : 0.9em;
 }
 
-/* Базові стилі бургер-кнопки */
- .burger {
-  display        : none;
-  flex-direction : column;
-  justify-content: center;
-  gap            : 5px;
-  width          : 30px;
-  height         : 25px;
-  background     : transparent;
-  border         : none;
-  cursor         : pointer;
-  z-index        : 1001;
-  margin-left    : auto;
-}
-
-.burger-line {
-  width           : 100%;
-  height          : 3px;
-  background-color: var(--accent);
-  transition      : all 0.3s ease;
-} 
-
-/* Активний стан — перетворення на хрестик */
-.burger.active .burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active .burger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.active .burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Адаптивність */
-@media (max-width: 768px) {
-  #menu {
-    position        : absolute;
-    top             : 100%;
-    right           : 0;
-    left            : 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    flex-direction  : column;
-    align-items     : flex-start;
-    max-height      : 0;
-    overflow        : hidden;
-    transition      : max-height 0.4s ease, padding 0.3s ease;
-    z-index         : 5;
-    padding         : 0 20px;
-  }
-
-  #menu.active {
-    max-height: 276px;
-    overflow-y: auto;
-    padding   : 20px;
-    position  : absolute;
-    top       : 0;
-    height    : 240px;
-  }
-
-  .burger {
-    display : flex;
-    position: absolute;
-    top     : 35px;
-    right   : 35px;
-    margin-right: 30px;
-  }
-
-  .header_menu {
-    top   : auto;
-    bottom: 20px;
-    right : 20px;
-  }
-
-  .header_menu-1 {
-    flex-direction: column;
-    gap           : 10px;
-    background    : rgba(0, 0, 0, 0.5);
-    padding       : 10px;
-    border-radius : 8px;
-  }
-
-  .header_menu {
-    position        : absolute;
-    top             : 100%;
-    right           : 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    flex-direction  : column;
-    align-items     : flex-start;
-    width           : 100%;
-    max-height      : 0;
-    overflow        : hidden;
-    transition      : max-height 0.3s ease;
-  }
-
-  .header_menu.active {
-    max-height: 500px;
-    padding   : 20px;
-  }
-
-  .header_menu-1 {
-    flex-direction: column;
-    width         : 100%;
-  }
-
-  .menu_item {
-    padding: 10px 0;
-  }
-
-  .menu_link {
-    color          : white;
-    text-decoration: none;
-  }
-}
-
 /* Кнопка до гори */
 #toTopBtn {
   position  : fixed;
-  right     : 20px;
+  right     : 35px;
   bottom    : 30px;
   background: transparent;
   border    : none;
