@@ -54,3 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// Закриття меню при натисканні на посилання в меню
+document.querySelectorAll('.header_menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById("menu").classList.remove("active");
+    document.getElementById("burger").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
+});
