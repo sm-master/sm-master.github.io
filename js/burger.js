@@ -1,64 +1,23 @@
-// Бургер-меню
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById("burger");
   const menu = document.getElementById("menu");
   const body = document.body;
+  const menuLinks = document.querySelectorAll(".header_menu a");
 
-  burger.addEventListener("click", () => {
+  const toggleMenu = () => {
     burger.classList.toggle("active");
     menu.classList.toggle("active");
     body.classList.toggle("no-scroll");
-  });
+  };
 
-  // Закриваємо меню при кліку поза ним
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest("nav") && !e.target.closest("#burger") && menu.classList.contains("active")) {
-      menu.classList.remove("active");
+  burger.addEventListener("click", toggleMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      // Закриваємо меню при кліку на пункт
       burger.classList.remove("active");
+      menu.classList.remove("active");
       body.classList.remove("no-scroll");
-    }
-  });
-
-  // Кнопка "Вгору"
-  const toTopBtn = document.getElementById("toTopBtn");
-
-  window.addEventListener("scroll", () => {
-    toTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-  });
-
-  toTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.getElementById("openFormBtn");
-  const popup = document.getElementById("contactPopup");
-  const closeBtn = document.getElementById("closeFormBtn");
-
-  openBtn.addEventListener("click", () => {
-    popup.classList.remove("hidden");
-    document.body.classList.add("no-scroll");
-  });
-
-  closeBtn.addEventListener("click", () => {
-    popup.classList.add("hidden");
-    document.body.classList.remove("no-scroll");
-  });
-
-  // Закриття по кліку поза формою
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.classList.add("hidden");
-      document.body.classList.remove("no-scroll");
-    }
-  });
-});
-// Закриття меню при натисканні на посилання в меню
-document.querySelectorAll('.header_menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById("menu").classList.remove("active");
-    document.getElementById("burger").classList.remove("active");
-    document.body.classList.remove("no-scroll");
+    });
   });
 });
