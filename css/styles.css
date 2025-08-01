@@ -553,12 +553,7 @@ form button:hover {
     font-size: 15px; /* трохи менший шрифт */
   }
 
-  .gallery_photo img {
-    width : 100%;
-    margin: 0 0 15px 0;
-  }
-
-  .gallery_photo h4,
+   .gallery_photo h4,
   .gallery_photo p,
   .gallery_photo ul,
   .gallery_photo li {
