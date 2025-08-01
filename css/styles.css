@@ -1,6 +1,5 @@
 :root {
   --dark   : #353535;
-  /* #787d7b; */
   --accent : #d45500;
   --light  : #f5f5f5;
   --font_0 : "Segoe UI", sans-serif;
@@ -23,6 +22,9 @@ body {
   background-color: var(--light);
   color           : var(--dark);
   transition      : all 0.3s ease;
+  line-height     : 1.6;
+  min-height      : 100vh;
+  letter-spacing  : -0.02em;
 }
 
 body.no-scroll {
@@ -32,26 +34,28 @@ body.no-scroll {
 .wrapper {
   display         : flex;
   flex-direction  : column;
-  min-height      : 100vh;
   background-color: var(--color_f);
 }
 
 /* === header_nav === */
 .header_nav {
   position        : fixed;
-  top             : 0;
-  left            : 0;
-  right           : 0;
+   top             : 0;
+ width           : 100%;
   height          : 100px;
   background-color: var(--dark);
-  display         : flex;
-  align-items     : center;
-  justify-content : space-between;
-  padding         : 0 2rem;
-  z-index         : 1000;
+   z-index         : 10;
   box-shadow      : 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+.header_inner {
+  max-width      : 1200px;
+  margin         : 0 auto;
+  height         : 100%;
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  padding        : 0 1rem;
+}
 section[id] {
   scroll-margin-top: 100px;
 }
@@ -80,7 +84,6 @@ section[id] {
   line-height: normal;
   font-size  : clamp(16px, 3vw, 30px);
 }
-
 
 /* Базові стилі бургер-кнопки */
 .burger {
@@ -120,6 +123,7 @@ section[id] {
   display        : flex;
   justify-content: flex-end;
 }
+
 
 /* Меню */
 .header_menu {
@@ -174,11 +178,11 @@ section[id] {
   }
 
   .burger {
-    display     : flex;
-    position    : absolute;
-    top         : 35px;
-    right       : 35px;
-    margin-right: 30px;
+    display         : flex;
+    /*  position    : absolute;
+    top             : 35px;
+    right           : 35px; */
+    margin-right    : 30px;
   }
 
   .header_menu {
