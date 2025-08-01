@@ -119,14 +119,10 @@ section[id] {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-#menu {
-  display        : flex;
-  justify-content: flex-end;
-}
-
-
 /* Меню */
 .header_menu {
+  display        : flex;
+  justify-content: flex-end;
   position   : absolute;
   top        : 30px;
   right      : 30px;
@@ -197,12 +193,6 @@ section[id] {
     background    : rgba(0, 0, 0, 0.5);
     padding       : 10px;
     border-radius : 8px;
-  }
-
-
-
-  .header_menu-1 {
-    flex-direction: column;
     width         : 100%;
   }
 
@@ -378,6 +368,12 @@ h2 {
   font-size       : 16px;
   color           : #333;
 }
+.gallery_photo {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
 
 .gallery_photo img {
   float        : left;
@@ -411,7 +407,7 @@ h2 {
   .gallery_photo img {
     float  : none;
     display: block;
-    width  : clamp(262px, 83vw, 400px);
+    width  : clamp(250px, 83vw, 400px);
   }
 }
 
@@ -550,4 +546,23 @@ form button:hover {
 /* Приховане модальне */
 .hidden {
   display: none;
+}
+@media (max-width: 380px) {
+  .gallery_photo {
+    padding: 15px;
+    font-size: 15px; /* трохи менший шрифт */
+  }
+
+  .gallery_photo img {
+    width : 100%;
+    margin: 0 0 15px 0;
+  }
+
+  .gallery_photo h4,
+  .gallery_photo p,
+  .gallery_photo ul,
+  .gallery_photo li {
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
